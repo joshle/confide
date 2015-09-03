@@ -1,0 +1,51 @@
+{
+    "name": "zizaco/confide",
+    "description": "Confide is an authentication solution for Laravel 5.1",
+    "keywords": ["laravel","illuminate","auth"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zizaco Zizuini",
+            "homepage": "http://www.zizaco.net"
+        },
+        {
+            "name": "Andrew Elkins",
+            "homepage": "http://www.andrewelkins.com"
+        },
+        {
+            "name": "einice",
+            "homepage": "http://www.sherr.cn"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "mockery/mockery": "~0.9",
+        "illuminate/console": "~5.0",
+        "illuminate/database": "~5.0",
+        "satooshi/php-coveralls": "~0.6"
+    },
+    "suggest": {
+        "zizaco/entrust":"add Role-based Permissions to Laravel 4"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "src/commands"
+        ],
+        "files": [
+            "src/Confide/helpers.php"
+        ],
+        "psr-4": {
+            "Zizaco\\Confide\\": "src/Confide/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "4.3-dev"
+        }
+    }
+}

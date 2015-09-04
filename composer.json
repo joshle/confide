@@ -28,9 +28,6 @@
         "illuminate/database": "~5.0",
         "satooshi/php-coveralls": "~0.6"
     },
-    "suggest": {
-        "zizaco/entrust":"add Role-based Permissions to Laravel 4"
-    },
     "autoload": {
         "classmap": [
             "src/migrations",
@@ -45,7 +42,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "4.3-dev"
+            "master": "1.0"
         }
     }
 }

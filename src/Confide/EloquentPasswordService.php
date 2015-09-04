@@ -127,7 +127,7 @@ class EloquentPasswordService implements PasswordServiceInterface
      */
     protected function getTable()
     {
-        return $this->app->make('config')->get('auth.reminder.table');
+        return $this->app->make('config')->get('confide.auth_reminder');
     }
 
     /**

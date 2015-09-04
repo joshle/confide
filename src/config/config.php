@@ -126,4 +126,6 @@ return [
     */
     'email_queue' => 'default',
 
+    'auth_reminder' =>  'password_reminders',
+
 ];

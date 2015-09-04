@@ -39,6 +39,5 @@
         "psr-4": {
             "Einice\\Confide\\": "src/Confide/"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }

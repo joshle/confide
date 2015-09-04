@@ -1,6 +1,6 @@
-<?php namespace Zizaco\Confide;
+<?php namespace Einice\Confide;
 
-use Zizaco\Confide\Support\GenerateCommand;
+use Einice\Confide\Support\GenerateCommand;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputOption;
  * in order to save some time.
  *
  * @license MIT
- * @package  Zizaco\Confide
+ * @package  Einice\Confide
  */
 class ControllerCommand extends GenerateCommand
 {

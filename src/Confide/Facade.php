@@ -1,10 +1,10 @@
-<?php namespace Zizaco\Confide;
+<?php namespace Einice\Confide;
 
 use Illuminate\Support\Facades\Facade as IlluminateFacade;
 
 /**
- * @see \Zizaco\Confide\Facade
- * @package Zizaco\Confide
+ * @see \Einice\Confide\Facade
+ * @package Einice\Confide
  */
 class Facade extends IlluminateFacade
 {

@@ -1,4 +1,4 @@
-<?php namespace Zizaco\Confide;
+<?php namespace Einice\Confide;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 
@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
  * A service that abstracts all user password management related methods.
  *
  * @license MIT
- * @package Zizaco\Confide
+ * @package Einice\Confide
  */
 interface PasswordServiceInterface
 {

@@ -1,4 +1,4 @@
-<?php namespace Zizaco\Confide;
+<?php namespace Einice\Confide;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;

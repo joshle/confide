@@ -1,13 +1,13 @@
-<?php namespace Zizaco\Confide;
+<?php namespace Einice\Confide;
 
 /**
  * Interface that declares the methods that must be
  * present in the UserValidator that is going to be used
  * by ConfideUser.
  *
- * @see \Zizaco\Confide\UserValidator
+ * @see \Einice\Confide\UserValidator
  * @license MIT
- * @package Zizaco\Confide
+ * @package Einice\Confide
  */
 interface UserValidatorInterface
 {

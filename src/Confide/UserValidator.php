@@ -1,4 +1,4 @@
-<?php namespace Zizaco\Confide;
+<?php namespace Einice\Confide;
 
 use Illuminate\Support\Facades\App as App;
 use Illuminate\Support\Facades\Lang as Lang;
@@ -15,7 +15,7 @@ use Illuminate\Support\MessageBag;
  *
  * In order to use a custom validator:
  *     // MyOwnValidator.php
- *     class MyOwnValidator implements Zizaco\Confide\UserValidatorInterface {
+ *     class MyOwnValidator implements Einice\Confide\UserValidatorInterface {
  *         ...
  *     }
  *
@@ -23,16 +23,16 @@ use Illuminate\Support\MessageBag;
  *     ...
  *     App::bind('confide.user_validator', 'MyOwnValidator');
  *
- * @see \Zizaco\Confide\UserValidator
+ * @see \Einice\Confide\UserValidator
  * @license MIT
- * @package Zizaco\Confide
+ * @package Einice\Confide
  */
 class UserValidator implements UserValidatorInterface
 {
     /**
      * Confide repository instance.
      *
-     * @var \Zizaco\Confide\RepositoryInterface
+     * @var \Einice\Confide\RepositoryInterface
      */
     public $repo;
 

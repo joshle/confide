@@ -1,4 +1,4 @@
-<?php namespace Zizaco\Confide;
+<?php namespace Einice\Confide;
 
 use Illuminate\Contracts\Foundation\Application;
 
@@ -7,7 +7,7 @@ use Illuminate\Contracts\Foundation\Application;
  * in Confide using Eloquent.
  *
  * @license MIT
- * @package Zizaco\Confide
+ * @package Einice\Confide
  */
 class EloquentRepository implements RepositoryInterface
 {

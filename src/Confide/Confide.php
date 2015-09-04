@@ -1,4 +1,4 @@
-<?php namespace Zizaco\Confide;
+<?php namespace Einice\Confide;
 
 use Illuminate\Contracts\Foundation\Application;
 
@@ -8,7 +8,7 @@ use Illuminate\Contracts\Foundation\Application;
  * application will interact directly with.
  *
  * @license MIT
- * @package Zizaco\Confide
+ * @package Einice\Confide
  */
 class Confide
 {
@@ -22,30 +22,30 @@ class Confide
     /**
      * Confide repository instance.
      *
-     * @var \Zizaco\Confide\RepositoryInterface
+     * @var \Einice\Confide\RepositoryInterface
      */
     public $repo;
 
     /**
      * Confide password service instance.
      *
-     * @var \Zizaco\Confide\PasswordServiceInterface
+     * @var \Einice\Confide\PasswordServiceInterface
      */
     public $passService;
 
     /**
      * Confide login throttling service instance.
      *
-     * @var \Zizaco\Confide\LoginThrottleServiceInterface
+     * @var \Einice\Confide\LoginThrottleServiceInterface
      */
     public $loginThrottler;
 
     /**
      * Create a new Confide class.
      *
-     * @param \Zizaco\Confide\RepositoryInterface           $repo
-     * @param \Zizaco\Confide\PasswordServiceInterface      $passService
-     * @param \Zizaco\Confide\LoginThrottleServiceInterface $loginThrottler
+     * @param \Einice\Confide\RepositoryInterface           $repo
+     * @param \Einice\Confide\PasswordServiceInterface      $passService
+     * @param \Einice\Confide\LoginThrottleServiceInterface $loginThrottler
      * @param \Illuminate\Contracts\Foundation\Application            $app            Laravel application object
      *
      * @return void
@@ -75,7 +75,7 @@ class Confide
     /**
      * Get the currently authenticated user or null.
      *
-     * @return \Zizaco\Confide\ConfideUserInterface|null
+     * @return \Einice\Confide\ConfideUserInterface|null
      */
     public function user()
     {
@@ -100,7 +100,7 @@ class Confide
      *
      * @param array $identity Array containing at least 'username' or 'email'.
      *
-     * @return \Zizaco\Confide\ConfideUserInterface|null
+     * @return \Einice\Confide\ConfideUserInterface|null
      */
     public function getUserByEmailOrUsername($identity)
     {

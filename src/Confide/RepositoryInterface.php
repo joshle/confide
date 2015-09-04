@@ -1,10 +1,10 @@
-<?php namespace Zizaco\Confide;
+<?php namespace Einice\Confide;
 
 /**
  * A service that abstracts all the interactions with persistent storage for confide.
  *
  * @license MIT
- * @package Zizaco\Confide
+ * @package Einice\Confide
  */
 interface RepositoryInterface
 {

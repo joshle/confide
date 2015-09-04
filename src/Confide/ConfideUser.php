@@ -1,15 +1,15 @@
-<?php namespace Zizaco\Confide;
+<?php namespace Einice\Confide;
 
-use Zizaco\Confide\Facade as ConfideFacade;
+use Einice\Confide\Facade as ConfideFacade;
 use Illuminate\Support\Facades\App as App;
 
 /**
  * This is a trait containing a initial implementation of the
  * methods declared in the ConfideUserInterface.
  *
- * @see \Zizaco\Confide\ConfideUserInterface
+ * @see \Einice\Confide\ConfideUserInterface
  * @license MIT
- * @package Zizaco\Confide
+ * @package Einice\Confide
  */
 trait ConfideUser
 {
@@ -53,7 +53,7 @@ trait ConfideUser
      */
     public function isValid()
     {
-        // Instantiate the Zizaco\Confide\UserValidator and calls the
+        // Instantiate the Einice\Confide\UserValidator and calls the
         // validate method. Feel free to use your own validation
         // class.
         $validator = App::make('confide.user_validator');

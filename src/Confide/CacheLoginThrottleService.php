@@ -1,4 +1,4 @@
-<?php namespace Zizaco\Confide;
+<?php namespace Einice\Confide;
 
 use Illuminate\Contracts\Foundation\Application;
 
@@ -8,7 +8,7 @@ use Illuminate\Contracts\Foundation\Application;
  * order to avoid brute force attacks.
  *
  * @license MIT
- * @package Zizaco\Confide
+ * @package Einice\Confide
  */
 class CacheLoginThrottleService implements LoginThrottleServiceInterface
 {

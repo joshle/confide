@@ -1,4 +1,4 @@
-<?php namespace Zizaco\Confide\Support;
+<?php namespace Einice\Confide\Support;
 
 use Illuminate\Console\Command;
 
@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
  * behaviors for the confide commands that generates files.
  *
  * @license MIT
- * @package Zizaco\Confide
+ * @package Einice\Confide
  */
 abstract class GenerateCommand extends Command
 {

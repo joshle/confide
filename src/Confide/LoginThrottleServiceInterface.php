@@ -1,4 +1,4 @@
-<?php namespace Zizaco\Confide;
+<?php namespace Einice\Confide;
 
 /**
  * The LoginThrottle is a service that Throttles login after
@@ -6,7 +6,7 @@
  * order to avoid brute force attacks.
  *
  * @license MIT
- * @package Zizaco\Confide
+ * @package Einice\Confide
  */
 interface LoginThrottleServiceInterface
 {

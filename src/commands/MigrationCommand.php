@@ -1,6 +1,6 @@
-<?php namespace Zizaco\Confide;
+<?php namespace Einice\Confide;
 
-use Zizaco\Confide\Support\GenerateCommand;
+use Einice\Confide\Support\GenerateCommand;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
@@ -8,7 +8,7 @@ use Symfony\Component\Console\Input\InputOption;
  * within the application directory in order to save some time.
  *
  * @license MIT
- * @package  Zizaco\Confide
+ * @package  Einice\Confide
  */
 class MigrationCommand extends GenerateCommand
 {

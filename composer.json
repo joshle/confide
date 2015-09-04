@@ -39,10 +39,4 @@
         "psr-4": {
             "Einice\\Confide\\": "src/Confide/"
         }
-<<<<<<< HEAD
-    }
-=======
-    },
-    "minimum-stability": "dev"
->>>>>>> c24688d9c91f30a69218a6e18de2d6aef4e4a29b
 }

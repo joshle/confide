@@ -12,9 +12,7 @@ class ConfideSetupUsersTable extends Migration
         // Creates the {{ $table }} table
         Schema::create('{{ $table }}', function ($table) {
             $table->increments('id');
-@if ($includeUsername)
             $table->string('username')->unique();
-@endif
             $table->string('email')->unique();
             $table->string('password');
             $table->string('confirmation_code');

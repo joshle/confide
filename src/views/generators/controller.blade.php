@@ -1,18 +1,13 @@
-<?php echo "<?php\n"; ?>{{ $namespace ? ' namespace '.$namespace.';' : '' }}
+<?php echo "<?php\n"; ?>
 
 <?php $repositoryClass = strstr($model, '\\') ? substr($model, 0, -strlen(strrchr($model, '\\'))).'\UserRepository' : 'UserRepository' ?>
-@if ($namespace)
+namespace App\Http\Controllers;
 
-use App;
-use View;
-use Input;
-use Config;
-use Redirect;
-use Lang;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Mail;
+use App\{{ $repositoryClass }};
 use Confide;
-use Controller;
-@endif
 
 /**
  * UsersController Class
@@ -24,8 +19,7 @@ class {{ $class }} extends Controller
 
     /**
      * Displays the form for account creation
-     *
-     * @return Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function {{ (! $restful) ? 'create' : 'getCreate' }}()
     {
@@ -34,13 +28,13 @@ class {{ $class }} extends Controller
 
     /**
      * Stores new account
-     *
-     * @return Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function {{ (! $restful) ? 'store' : 'postIndex' }}()
+    public function {{ (! $restful) ? 'store' : 'postIndex' }}(Request $request)
     {
-        $repo = App::make('{{ $repositoryClass }}');
-        $user = $repo->signup(Input::all());
+        $repo = new {{ $repositoryClass }}();
+        $user = $repo->signup($request->all());
 
         if ($user->id) {
             if (config('confide.signup_email')) {
@@ -62,20 +56,19 @@ class {{ $class }} extends Controller
             $error = $user->errors()->all(':message');
 
             return redirect()->action('{{ $namespace ? $namespace.'\\' : '' }}{{ $class }}{{ (! $restful) ? '@create' : '@getCreate' }}')
-                ->withInput(Input::except('password'))
+                ->withInput($request->except('password'))
                 ->with('error', $error);
         }
     }
 
     /**
      * Displays the login form
-     *
-     * @return Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
     public function {{ (! $restful) ? 'login' : 'getLogin' }}()
     {
         if (Confide::user()) {
-            return Redirect::to('/');
+            return redirect('/');
         } else {
             return view(config('confide.login_form'));
         }
@@ -83,16 +76,16 @@ class {{ $class }} extends Controller
 
     /**
      * Attempt to do login
-     *
-     * @return Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function {{ (! $restful) ? 'doLogin' : 'postLogin' }}()
+    public function {{ (! $restful) ? 'doLogin' : 'postLogin' }}(Request $request)
     {
-        $repo = App::make('{{ $repositoryClass }}');
-        $input = Input::all();
+        $repo  = new {{ $repositoryClass }}();
+        $input = $request->all();
 
         if ($repo->login($input)) {
-            return Redirect::intended('/');
+            return redirect('/');
         } else {
             if ($repo->isThrottled($input)) {
                 $err_msg = trans('confide::confide.alerts.too_many_attempts');
@@ -103,17 +96,15 @@ class {{ $class }} extends Controller
             }
 
             return redirect()->action('{{ $namespace ? $namespace.'\\' : '' }}{{ $class }}{{ (! $restful) ? '@login' : '@getLogin' }}')
-                ->withInput(Input::except('password'))
+                ->withInput($request->('password'))
                 ->with('error', $err_msg);
         }
     }
 
     /**
      * Attempt to confirm account with code
-     *
-     * @param string $code
-     *
-     * @return Illuminate\Http\Response
+     * @param $code
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function {{ (! $restful) ? 'confirm' : 'getConfirm' }}($code)
     {
@@ -130,8 +121,7 @@ class {{ $class }} extends Controller
 
     /**
      * Displays the forgot password form
-     *
-     * @return Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function {{ (! $restful) ? 'forgotPassword' : 'getForgot' }}()
     {
@@ -140,12 +130,12 @@ class {{ $class }} extends Controller
 
     /**
      * Attempt to send change password link to the given email
-     *
-     * @return Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function {{ (! $restful) ? 'doForgotPassword' : 'postForgot' }}()
+    public function {{ (! $restful) ? 'doForgotPassword' : 'postForgot' }}(Request $request)
     {
-        if (Confide::forgotPassword(Input::get('email'))) {
+        if (Confide::forgotPassword($request['email'])) {
             $notice_msg = trans('confide::confide.alerts.password_forgot');
             return redirect()->action('{{ $namespace ? $namespace.'\\' : '' }}{{ $class }}{{ (! $restful) ? '@login' : '@getLogin' }}')
                 ->with('notice', $notice_msg);
@@ -159,10 +149,8 @@ class {{ $class }} extends Controller
 
     /**
      * Shows the change password form with the given token
-     *
-     * @param string $token
-     *
-     * @return Illuminate\Http\Response
+     * @param $token
+     * @return $this
      */
     public function {{ (! $restful) ? 'resetPassword' : 'getReset' }}($token)
     {
@@ -172,16 +160,16 @@ class {{ $class }} extends Controller
 
     /**
      * Attempt change password of the user
-     *
-     * @return Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function {{ (! $restful) ? 'doResetPassword' : 'postReset' }}()
+    public function {{ (! $restful) ? 'doResetPassword' : 'postReset' }}(Request $request)
     {
-        $repo = App::make('{{ $repositoryClass }}');
+        $repo = new {{ $repositoryClass }}();
         $input = array(
-            'token'                 =>Input::get('token'),
-            'password'              =>Input::get('password'),
-            'password_confirmation' =>Input::get('password_confirmation'),
+            'token'                 => $request['token'],
+            'password'              => $request['password'],
+            'password_confirmation' => $request['password_confirmation'],
         );
 
         // By passing an array with the token, password and confirmation
@@ -199,13 +187,11 @@ class {{ $class }} extends Controller
 
     /**
      * Log the user out of the application.
-     *
-     * @return Illuminate\Http\Response
+     * @return mixed
      */
     public function {{ (! $restful) ? 'logout' : 'getLogout' }}()
     {
         Confide::logout();
-
-        return Redirect::to('/');
+        return redirect('/');
     }
 }

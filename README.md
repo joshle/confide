@@ -26,7 +26,7 @@ composer require einice/confide
 ***
 生成数据库文件(需要删除 `database/migrations` 下的两个自带文件)
 ``` php
-php artisan confide:migration --username
+php artisan confide:migration
 ```
 ***
 安装数据表
@@ -51,7 +51,7 @@ class User extends Model implements ConfideUserInterface
 ***
 生成控制器和路由
 ``` php
-php artisan confide:controller --username
+php artisan confide:controller
 php artisan confide:routes
 ```
 或者也可以生成 `RESTful` 风格的控制和路由

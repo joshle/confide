@@ -1,12 +1,11 @@
 <?php echo "<?php\n"; ?>
 
-<?php $repositoryClass = strstr($model, '\\') ? substr($model, 0, -strlen(strrchr($model, '\\'))).'\UserRepository' : 'UserRepository' ?>
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Mail;
-use App\{{ $repositoryClass }};
+use App\UserRepository;
 use Confide;
 
 /**
@@ -33,7 +32,7 @@ class {{ $class }} extends Controller
      */
     public function {{ (! $restful) ? 'store' : 'postIndex' }}(Request $request)
     {
-        $repo = new {{ $repositoryClass }}();
+        $repo = new UserRepository();
         $user = $repo->signup($request->all());
 
         if ($user->id) {
@@ -81,7 +80,7 @@ class {{ $class }} extends Controller
      */
     public function {{ (! $restful) ? 'doLogin' : 'postLogin' }}(Request $request)
     {
-        $repo  = new {{ $repositoryClass }}();
+        $repo  = new UserRepository();
         $input = $request->all();
 
         if ($repo->login($input)) {
@@ -96,7 +95,7 @@ class {{ $class }} extends Controller
             }
 
             return redirect()->action('{{ $namespace ? $namespace.'\\' : '' }}{{ $class }}{{ (! $restful) ? '@login' : '@getLogin' }}')
-                ->withInput($request->('password'))
+                ->withInput($request->except('password'))
                 ->with('error', $err_msg);
         }
     }
@@ -165,7 +164,7 @@ class {{ $class }} extends Controller
      */
     public function {{ (! $restful) ? 'doResetPassword' : 'postReset' }}(Request $request)
     {
-        $repo = new {{ $repositoryClass }}();
+        $repo = new UserRepository();
         $input = array(
             'token'                 => $request['token'],
             'password'              => $request['password'],

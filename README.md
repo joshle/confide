@@ -8,6 +8,7 @@ composer require einice/confide
 ***
 注册服务提供者
 ```php
+
 'providers' => [
     // ...
     Einice\Confide\ServiceProvider::class,
@@ -16,6 +17,7 @@ composer require einice/confide
 ***
 注册 Facade
 ```php
+
 'aliases' => [
     // ...
     'Confide' => Einice\Confide\Facade::class,
@@ -53,7 +55,6 @@ php artisan confide:controller --username
 php artisan confide:routes
 ```
 或者也可以生成 `RESTful` 风格的控制和路由
-
 ``` php
 php artisan confide:controller --restful
 php artisan confide:routes --restful

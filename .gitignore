@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 .idea/
-=======
 /bootstrap/compiled.php
 .env.*.php
 .env.php
 .env
->>>>>>> d2f9b1ba36564f79dd3c00018383be93692ebe94

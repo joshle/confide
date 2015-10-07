@@ -67,7 +67,7 @@ class MigrationCommand extends GenerateCommand
         }
         $this->line('');
 
-        if ($this->confirm("Proceed with the migration creation? [Yes|no]")) {
+       // if ($this->confirm("Proceed with the migration creation? [Yes|no]")) {
             $this->info("Creating migration...");
             // Generate
             $filename = '../database/migrations/'.
@@ -75,6 +75,6 @@ class MigrationCommand extends GenerateCommand
             $this->generateFile($filename, 'generators.migration', $viewVars);
 
             $this->info("Migration successfully created!");
-        }
+       // }
     }
 }

@@ -66,14 +66,14 @@ class RoutesCommand extends GenerateCommand
         $this->comment($message);
         $this->line('');
 
-        if ($this->confirm("Proceed with the append? [Yes|no]")) {
+       // if ($this->confirm("Proceed with the append? [Yes|no]")) {
             $this->info("Appending routes...");
             // Generate
             $filename = 'Http/routes.php';
             $this->appendInFile($filename, 'generators.routes', $viewVars);
 
             $this->info("app/Http/routes.php Patched successfully!");
-        }
+       // }
     }
 
     /**

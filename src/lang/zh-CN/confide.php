@@ -19,7 +19,7 @@ return array(
         'title' => '登录',
         'desc' => '输入您的凭证',
         'forgot_password' => '(忘记密码)',
-        'remember' => '记住登录状态啊',
+        'remember' => '记住登录状态',
         'submit' => '登录',
     ),
 

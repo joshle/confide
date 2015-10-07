@@ -70,7 +70,7 @@ class ControllerCommand extends GenerateCommand
         );
         $this->line('');
 
-        if ($this->confirm("Proceed with the controller creation? [Yes|no]")) {
+        //if ($this->confirm("Proceed with the controller creation? [Yes|no]")) {
             $this->info("Creating $class...");
             // Generate
             $filename = 'Http/controllers/'.($namespace ? str_replace('\\', '/', $namespace).'/' : '').$class.'.php';
@@ -81,7 +81,7 @@ class ControllerCommand extends GenerateCommand
             $filename = '../'.str_replace('\\', '/', $model).'Repository.php';
             $this->generateFile($filename, 'generators.repository', $viewVars);
             $this->info($model.'Repository.php Successfully created!');
-        }
+        //}
     }
 
     /**
